@@ -1,0 +1,15 @@
+catalog = LrApplication.activeCatalog()
+photo = catalog:getTargetPhoto()
+devset = photo:getDevelopSettings()
+tone = devset.ToneCurvePV2012
+toneR = devset.ToneCurvePV2012Red
+toneG = devset.ToneCurvePV2012Green
+toneB = devset.ToneCurvePV2012Blue
+
+---------
+
+
+tone is a Lua table.
+Let (x1, y1), ..., (xn, yn) be the data points of the tone curve, with x1 < x2 < ... < xn, and values from 0 to 100%.
+Then tone is of size 2*n, with keys being consecutive integers from 1 to 2*n. tone[2*i - 1] corresponds to xi; tone[2*i] corresponds to yi.
+The values of tone are bytes from 0 to 255; with 0 corresponding to 0%, 128 corresponding to 50%, 255 corresponding to 100%, and linear mapping between.
